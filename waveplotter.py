@@ -23,7 +23,8 @@ import matplotlib.pyplot as plt
 
 COLOR = 'k'
 RATIO = (13, 1)
-LINEWIDTH = 0.01
+LINEWIDTH = 0.005
+DPI = 850
 EXTENSIONS = ['wav',
               'mp1',
               'mp2',
@@ -76,7 +77,7 @@ def plot_wave(wave_data, fig_name):
     # Normalize to limit computational time in matplotlib
     data = [d / max_wave for d in wave_data]
     ############################################################################
-    plt.figure(figsize=RATIO)  # Adjust image ratio here
+    plt.figure(figsize=RATIO, dpi=DPI)  # Adjust image ratio here
     plt.plot(data, COLOR, linewidth=LINEWIDTH)  # Adjust color and line data here
     ############################################################################
     plt.axis('off')
