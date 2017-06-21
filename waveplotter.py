@@ -21,7 +21,8 @@ import wave
 import numpy as np
 import matplotlib.pyplot as plt
 
-COLOR = 'k'
+LINE_COLOR = 'black'
+BG_COLOR = 'white'
 RATIO = (13, 1)
 LINEWIDTH = 0.005
 DPI = 850
@@ -76,14 +77,12 @@ def plot_wave(wave_data, fig_name):
     max_wave = max(wave_data)
     # Normalize to limit computational time in matplotlib
     data = [d / max_wave for d in wave_data]
-    ############################################################################
-    plt.figure(figsize=RATIO, dpi=DPI)  # Adjust image ratio here
-    plt.plot(data, COLOR, linewidth=LINEWIDTH)  # Adjust color and line data here
-    ############################################################################
+    plt.figure(figsize=RATIO, dpi=DPI, facecolor=BG_COLOR)
+    plt.plot(data, LINE_COLOR, linewidth=LINEWIDTH)
     plt.axis('off')
     print("Showing plot. Modify and use GUI to save, or exit window to save")
     print("default settings to {}".format(fig_name))
-    plt.savefig(fig_name)
+    plt.savefig(fig_name, facecolor=BG_COLOR)
     plt.show()
     print("Plot saved to {}".format(fig_name))
 
